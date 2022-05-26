@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Counter from './components/Counter/Counter';
+import Options from './components/Options/Options';
+import { AppStateType } from './redux/store';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App=()=> {
+    const EditMode = useSelector<AppStateType, boolean>(state => state.counter.EditMode)
+    const ValueError = useSelector<AppStateType, string>(state => state.counter.ValueError)
+    return (
+        <div className="App">
+            <Options
+                editMode={EditMode}
+                validatorError={ValueError} />
+
+            <Counter
+                editMode={EditMode}
+                validatorError={ValueError} />
+        </div>
+    );
 }
 
-export default App;
+

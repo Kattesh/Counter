@@ -1,0 +1,26 @@
+.options_field {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Default styles */
+.options_field input {
+    width: 66px;
+    padding: 3px;
+    vertical-align: middle;
+}
+.options_field span {
+    width: 100%;
+    vertical-align: middle;
+    border-bottom: 1px solid #333;
+}
+
+/* on validator error styles */
+.options_field.error input{
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, .4);
+}
+.options_field.error span{
+    border-bottom: 1px solid red;
+}
